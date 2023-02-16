@@ -1,23 +1,25 @@
 /* ================================================================================= */
 
-1) Make service for run
-
+1) **Make service for run**
+<pre>
 #include "service.h"
 
 class TestService: public daemonizer::Service {
   public:
-    explicit TestService() {}
+    TestService() {}
     virtual TestService() {}
     
     bool run() override {
        // Do something here for your service
     }
 };
+</pre>
 
 /* ================================================================================= */
 
-2) Make Daemoniser
+2) **Make Daemoniser**
 
+<pre>
 #include "daemon.h"
 
 class TestDaemon : public daemonizer::Daemonizer {
@@ -29,16 +31,18 @@ class TestDaemon : public daemonizer::Daemonizer {
   		// init all params for your daemon from config here
   	}
 };
-
+</pre>
 
 /* ================================================================================= */
 
-3) Start your daemon in main.cc
+3) **Start your daemon in main.cc**
 
+<pre>
 #include "test_daemon.h"
 
 int main(const int argc, const char **argv ) { 
 	return TestDaemon(argc, argv).run();
 }
+</pre>
 
 /* ================================================================================= */
