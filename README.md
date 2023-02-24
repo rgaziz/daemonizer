@@ -7,8 +7,9 @@
 class TestService: public daemonizer::Service {
   public:
     TestService() {}
-    virtual TestService() {}
+    virtual TestService() override {}
     
+  protected:
     bool run() override {
        // Do something here for your service
     }
@@ -25,10 +26,10 @@ class TestService: public daemonizer::Service {
 class TestDaemon : public daemonizer::Daemonizer {
  public:
   	TestDaemon(const int argc, const char **argv):Daemonizer(argc, argv) {}
-  	~TestDaemon() {}
+  	virtual ~TestDaemon() override {}
   private:
   	bool initialize() noexcept override {
-  		// init all params for your daemon from config here
+  	   // init all params for your daemon from config here
   	}
 };
 </pre>
